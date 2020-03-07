@@ -1,0 +1,59 @@
+/* Basic browser default reset(s). */
+* {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    padding: 1.5rem;
+}
+
+h1 {
+    font-size: 2rem;
+    text-align: center;
+    margin: 1rem 0 1.5rem;
+}
+
+nav {
+    text-align: center;;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+nav li {
+    margin: 0.5rem 1rem;
+}
+
+aside {
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+form h2 {
+    text-align: center;
+    margin: 1.5rem auto 1rem;
+}
+
+button {
+    display: block;
+    padding: 0.5rem 1rem;
+    margin: 1rem auto;
+    cursor: pointer;
+}
+
+p {
+    max-width: 500px;
+    margin: 1rem auto;
+}
+
+.my-link { /* Even works on dynamic elements! */
+    color: red;
+}

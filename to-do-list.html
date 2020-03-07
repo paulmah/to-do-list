@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>
+            Javascript To Do List
+        </title>
+        <meta task="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!-- Script(s): -->
+        <script type="text/javascript" src="./js/scripts.js" defer></script>
+    </head>
+    <body>
+        <h1>Javascript To Do List</h1>
+        <p>
+            <strong>
+                Your assignment:
+            </strong> 
+            Create a form with (4) fields and a button. When the submit event occurs, add the entered data into a new row (tr) full of data (td) in the table's body (tbody).
+        </p>
+        <form id="table-form" action="#" method="GET">
+            <h2>
+                Add to To-Dos
+            </h2>
+            <label for="task">
+                Enter Task
+                <input type="text" task="task" id="task">
+            </label>
+            <button type="submit">
+                Add To Do
+            </button>
+        </form>
+        <table><!-- Open your table... -->
+            <thead><!-- Open the table head... -->
+                <tr><!-- Start a row... -->
+                    <th>Task</th><!-- Enter a heading per column... -->
+                </tr>
+            </thead>
+            <tbody id="table-body"><!-- Table body contains your data! -->
+                <tr><!-- Each row requires a "tr". -->
+                    <td>Make this list</td><!-- Each cell in a row is "table data". Make sure it is the number of columns you are using. -->
+                </tr>
+            </tbody>
+        </table>
+        <h2>Completed</h2>
+        <table><!-- Open your table... -->
+            <thead><!-- Open the table head... -->
+                <tr><!-- Start a row... -->
+                    <th>completedTask</th><!-- Enter a heading per column... -->
+                </tr>
+            </thead>
+            <tbody id="completed-table-body"><!-- Table body contains your data! -->
+                <tr><!-- Each row requires a "tr". -->
+                    <td>Make this list</td><!-- Each cell in a row is "table data". Make sure it is the number of columns you are using. -->
+                    <td><button>Delete Row</button></td>
+                </tr>
+            </tbody>
+        </table>
+
+    </body>
+</html>
