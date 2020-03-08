@@ -3,15 +3,15 @@
     <head>
         <meta charset="UTF-8">
         <title>
-            Javascript To Do List
+            Table Exercise
         </title>
-        <meta task="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- Script(s): -->
         <script type="text/javascript" src="./js/scripts.js" defer></script>
     </head>
     <body>
-        <h1>Javascript To Do List</h1>
+        <h1>Table Example</h1>
         <p>
             <strong>
                 Your assignment:
@@ -20,42 +20,33 @@
         </p>
         <form id="table-form" action="#" method="GET">
             <h2>
-                Add to To-Dos
+                Add Info to Table Form
             </h2>
-            <label for="task">
-                Enter Task
-                <input type="text" task="task" id="task">
+            <label for="name">
+                Enter Name:
+                <input type="text" name="name" id="name">
             </label>
             <button type="submit">
-                Add To Do
+                Add to Table
             </button>
         </form>
         <table><!-- Open your table... -->
             <thead><!-- Open the table head... -->
                 <tr><!-- Start a row... -->
-                    <th>Task</th><!-- Enter a heading per column... -->
+                    <th>Name</th><!-- Enter a heading per column... -->
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody id="table-body"><!-- Table body contains your data! -->
                 <tr><!-- Each row requires a "tr". -->
-                    <td>Make this list</td><!-- Each cell in a row is "table data". Make sure it is the number of columns you are using. -->
+                    <td>Bob</td><!-- Each cell in a row is "table data". Make sure it is the number of columns you are using. -->
+                    <td><button>Delete Row</button></td>
                 </tr>
-            </tbody>
-        </table>
-        <h2>Completed</h2>
-        <table><!-- Open your table... -->
-            <thead><!-- Open the table head... -->
-                <tr><!-- Start a row... -->
-                    <th>completedTask</th><!-- Enter a heading per column... -->
-                </tr>
-            </thead>
-            <tbody id="completed-table-body"><!-- Table body contains your data! -->
-                <tr><!-- Each row requires a "tr". -->
-                    <td>Make this list</td><!-- Each cell in a row is "table data". Make sure it is the number of columns you are using. -->
+                <tr>
+                    <td>Sarah</td>
                     <td><button>Delete Row</button></td>
                 </tr>
             </tbody>
         </table>
-
     </body>
 </html>

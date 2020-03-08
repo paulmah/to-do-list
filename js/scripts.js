@@ -1,4 +1,4 @@
-/* Javascript To-Do Exercise */
+/* Table Exercise */
 
 // First capture the form!
 var myForm = document.getElementById( 'table-form' );
@@ -11,15 +11,15 @@ function deleteRow( element ) { // Element will be the button we pressed.
     tableRow.parentNode.removeChild( tableRow ); // An element cannot delete itself... so we have to tell the parent to do it for us!
 }
 
-// // Grab existing buttons.
-// var allButtons = document.querySelectorAll( 'td > button' );
-// // Loop through our query selected buttons.
-// for ( var i = 0; i < allButtons.length; i++ ) {
-//     // Let's add listeners to these!
-//     allButtons[i].addEventListener( 'click', function ( event ) {
-//         deleteRow( this );
-//     } );
-// }
+// Grab existing buttons.
+var allButtons = document.querySelectorAll( 'td > button' );
+// Loop through our query selected buttons.
+for ( var i = 0; i < allButtons.length; i++ ) {
+    // Let's add listeners to these!
+    allButtons[i].addEventListener( 'click', function ( event ) {
+        deleteRow( this );
+    } );
+}
 
 
 // Listen for a form submission...
@@ -28,31 +28,31 @@ myForm.addEventListener( 'submit', function ( event ) {
     event.preventDefault();
 
     // Grab your input elements.
-    var taskField        = document.querySelector( 'form > label > input' );
+    var nameField        = document.querySelector( 'form > label > input' ); // Get first input (name field.)
 
     // Extract the values.
-    var taskValue        = taskField.value;
+    var nameValue        = nameField.value;
 
     // Create new element (table row.)
     var newRow = document.createElement( 'TR' );
 
     // Create new cell for the row (table data.)
-    var taskCell = document.createElement( 'TD' );
-    taskCell.textContent = taskValue; // Add our text to the cell.
-    newRow.appendChild( taskCell ); // Add our cell to the table row.
+    var nameCell = document.createElement( 'TD' );
+    nameCell.textContent = nameValue; // Add our text to the cell.
+    newRow.appendChild( nameCell ); // Add our cell to the table row.
 
 
-   
-   
-    // // Create our delete button on the Second data list.
-    // var deleteButton = document.createElement( 'BUTTON' );
-    // deleteButton.textContent = 'Delete Row'; // Add some text.
-
-    // deleteButton.addEventListener( 'click', function ( event ) {
-    //     deleteRow( this ); // Delete the row!
-    // } );
-
-
+    // Create our delete button.
+    var deleteButton = document.createElement( 'BUTTON' );
+    deleteButton.textContent = 'Delete Row'; // Add some text.
+    // These elements are being dynamically added - the event listener we
+    // added earlier wouldn't see it! We have to add event listeners as
+    // we're MAKING them instead here.
+    deleteButton.addEventListener( 'click', function ( event ) {
+        deleteRow( this ); // Delete the row!
+        // In this case, "this" is the element the EVENT is happening to!
+        // Remember objects? We used "this" to refer to itself there too!
+    } );
     var actionCell = document.createElement( 'TD' ); // Create the actions cell!
     actionCell.appendChild( deleteButton ); // Add the button inside.
     newRow.appendChild( actionCell ); // Don't forget to add this new cell to the row too!
