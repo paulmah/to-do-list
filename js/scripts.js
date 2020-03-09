@@ -1,63 +1,54 @@
-/* Javascript To-Do Exercise */
-
-// First capture the form!
-var myForm = document.getElementById( 'table-form' );
-
-/**
- * Delete table row element (assuming we click our 'tr > td > button' element.)
- */
-function deleteRow( element ) { // Element will be the button we pressed.
-    var tableRow = element.parentNode.parentNode; // 2 levels up from our button, to get our row.
-    tableRow.parentNode.removeChild( tableRow ); // An element cannot delete itself... so we have to tell the parent to do it for us!
+// Create a "close" button and append it to each list item
+var myNodelist = document.getElementsByTagName("LI");
+var i;
+for (i = 0; i < myNodelist.length; i++) {
+  var span = document.createElement("SPAN");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
 }
 
-// // Grab existing buttons.
-// var allButtons = document.querySelectorAll( 'td > button' );
-// // Loop through our query selected buttons.
-// for ( var i = 0; i < allButtons.length; i++ ) {
-//     // Let's add listeners to these!
-//     allButtons[i].addEventListener( 'click', function ( event ) {
-//         deleteRow( this );
-//     } );
-// }
+// Click on a close button to hide the current list item
+var close = document.getElementsByClassName("close");
+var i;
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+    var div = this.parentElement;
+    div.style.display = "none";
+  }
+}
 
+// Add a "checked" symbol when clicking on a list item
+var list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
 
-// Listen for a form submission...
-myForm.addEventListener( 'submit', function ( event ) {
-    // Prevent the form from ACTUALLY submitting (would leave or refresh the page, terminating our script.)
-    event.preventDefault();
+// Create a new list item when clicking on the "Add" button
+function newElement() {
+  var li = document.createElement("li");
+  var inputValue = document.getElementById("myInput").value;
+  var t = document.createTextNode(inputValue);
+  li.appendChild(t);
+  if (inputValue === '') {
+    alert("You must write something!");
+  } else {
+    document.getElementById("myUL").appendChild(li);
+  }
+  document.getElementById("myInput").value = "";
 
-    // Grab your input elements.
-    var taskField        = document.querySelector( 'form > label > input' );
+  var span = document.createElement("SPAN");
+  var txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  li.appendChild(span);
 
-    // Extract the values.
-    var taskValue        = taskField.value;
-
-    // Create new element (table row.)
-    var newRow = document.createElement( 'TR' );
-
-    // Create new cell for the row (table data.)
-    var taskCell = document.createElement( 'TD' );
-    taskCell.textContent = taskValue; // Add our text to the cell.
-    newRow.appendChild( taskCell ); // Add our cell to the table row.
-
-
-   
-   
-    // // Create our delete button on the Second data list.
-    // var deleteButton = document.createElement( 'BUTTON' );
-    // deleteButton.textContent = 'Delete Row'; // Add some text.
-
-    // deleteButton.addEventListener( 'click', function ( event ) {
-    //     deleteRow( this ); // Delete the row!
-    // } );
-
-
-    var actionCell = document.createElement( 'TD' ); // Create the actions cell!
-    actionCell.appendChild( deleteButton ); // Add the button inside.
-    newRow.appendChild( actionCell ); // Don't forget to add this new cell to the row too!
-
-    // Target your table body.
-    var tableBody = document.getElementById( 'table-body' );
-    tableBody.appendChild( newRow ); // Inject the brand new row, so the user can see it! Yay!
-} );
+  for (i = 0; i < close.length; i++) {
+    close[i].onclick = function() {
+      var div = this.parentElement;
+      div.style.display = "none";
+    }
+  }
+}
